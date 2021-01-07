@@ -11,8 +11,6 @@ import getpass
 import sys
 import time
 
-                    '
-
 print '    '
 email = raw_input('Email: ')
 print '      '
