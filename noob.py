@@ -1,6 +1,4 @@
 #!/usr/bin/env python2
-# by BlackXploits
-# GitHub: https://github.com/blackxploits
 
 import smtplib
 import getpass
