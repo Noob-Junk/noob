@@ -28,6 +28,6 @@ total = input("Total spam: ")
 print c+"\n[*]"+w+" Running . . ."+w
 for i in range (total):
   server.sendmail(fromaddress,toaddress,message)
-  print g+"[*]"+w+" mail sent 1"
+  print g+"[*]"+w+" mail sent ✓"
   
 server.quit()
