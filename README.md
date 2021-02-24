@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/Noob-Junk"><img title="MADE IN PHILIPPINES" src="https://img.shields.io/badge/MADE%20IN-PHILIPPINES-gray"></a>
 </p>
-###Installation
+### Installation
 
 ```
 $ git clone git://github.com/Noob-Junk/noob.git
