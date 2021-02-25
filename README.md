@@ -3,7 +3,6 @@
 <p align="center">
 <a href="https://github.com/Noob-Junk"><img title="MADE IN RUSSIA" src="https://img.shields.io/badge/MADE%20IN-RUSSIA-pink"></a>
 </p>
-
 ### Installation
 
 ```
